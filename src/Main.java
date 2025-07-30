@@ -1,70 +1,83 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-//        System.out.println(Graphics.basicString("Hello World", BasicColor.BLUE) + " Hello World");
-//        System.out.println(Graphics.brightString("Hello World", BasicColor.BLUE) + " Hello World");
-//        System.out.println(Graphics.basicBackground("Hello World", BasicColor.BLUE) + " Hello World");
-//        System.out.println(Graphics.brightBackground("Hello World", BasicColor.BLUE) + " Hello World");
-        //System.out.println("\u001b[96mHello World!\u001b[39mtest");
+    public static void main(String[] args) throws Exception{
 
-//        Graphics.Color.enableString(BasicColor.BLACK);
-//        Graphics.Color.enableBackground(BasicColor.CYAN);
-//        Graphics.Style.enableBold();
-//        Graphics.Style.enableItalic();
-//        System.out.print("Hello World!");
-//        Graphics.Style.disableItalic();
-//        Graphics.Color.disableForeground();
-//        Graphics.Color.disableBackground();
-//        System.out.println("Next line");
+        ANSI.Color.enableString(ANSI.BasicColor.BLACK);
+        ANSI.Color.enableBackground(ANSI.BasicColor.CYAN);
+        ANSI.Style.enableBold();
+        ANSI.Style.enableItalic();
+        System.out.print("Hello World!");
+        ANSI.Style.disableItalic();
+        ANSI.Color.disableForeground();
+        ANSI.Color.disableBackground();
+        System.out.println("Next line");
 
-        System.out.println(Graphics.Style.italic("Hello World!"));
+        System.out.println(ANSI.Style.italic("Hello World!"));
         System.out.println("No pass.");
-        Graphics.Style.enableItalic();
+        ANSI.Style.enableItalic();
         System.out.println("Italic");
-        Graphics.Style.disableItalic();
+        ANSI.Style.disableItalic();
         System.out.println("No attribute here");
         System.out.println("*****************************");
 
-        System.out.println(Graphics.Style.underline("Hello World!"));
+        System.out.println(ANSI.Style.underline("Hello World!"));
         System.out.println("No pass.");
-        Graphics.Style.enableUnderline();
+        ANSI.Style.enableUnderline();
         System.out.println("Underline");
-        Graphics.Style.disableUnderline();
+        ANSI.Style.disableUnderline();
         System.out.println("No attribute here");
         System.out.println("*****************************");
 
-        System.out.println(Graphics.Style.blinking("Hello World!"));
+        System.out.println(ANSI.Style.blinking("Hello World!"));
         System.out.println("No pass.");
-        Graphics.Style.enableBlinking();
+        ANSI.Style.enableBlinking();
         System.out.println("This should blink.");
-        Graphics.Style.disableBlinking();
+        ANSI.Style.disableBlinking();
         System.out.println("No attribute here");
         System.out.println("*****************************");
 
-        System.out.println(Graphics.Style.inverseReverse("Hello World!"));
+        System.out.println(ANSI.Style.inverseReverse("Hello World!"));
         System.out.println("No pass.");
-        Graphics.Style.enableInverseReverse();
+        ANSI.Style.enableInverseReverse();
         System.out.println("I don't know what to expect here.");
-        Graphics.Style.disableInverseReverse();
+        ANSI.Style.disableInverseReverse();
         System.out.println("No attribute here");
         System.out.println("*****************************");
 
-        System.out.println(Graphics.Style.hiddenInvisible("Hello World!"));
+        System.out.println(ANSI.Style.hiddenInvisible("Hello World!"));
         System.out.println("No pass.");
-        Graphics.Style.enableHiddenInvisible();
+        ANSI.Style.enableHiddenInvisible();
         System.out.println("This will be our little secret.");
-        Graphics.Style.disableHiddenInvisible();
+        ANSI.Style.disableHiddenInvisible();
         System.out.println("No attribute here");
         System.out.println("*****************************");
 
-        System.out.println(Graphics.Style.strikethrough("Hello World!"));
+        System.out.println(ANSI.Style.strikethrough("Hello World!"));
         System.out.println("No pass.");
-        Graphics.Style.enableStrikethrough();
+        ANSI.Style.enableStrikethrough();
         System.out.println("This is incorrect.");
-        Graphics.Style.disableStrikethrough();
+        ANSI.Style.disableStrikethrough();
         System.out.println("No attribute here");
         System.out.println("*****************************");
+
+
+        ANSI.Cursor.savePositionDEC();
+        //ANSI.Cursor.moveUp(3);
+        System.out.println(ANSI.Color.colorString("Hello world!", 5,61, 245));
+        ANSI.Color.enableColor(200,21,232);
+        System.out.println("Hello there!");
+        ANSI.Color.disableForeground();
+        ANSI.Color.enableBackground(238,228,240);
+        System.out.println("Finished");
+        //ANSI.Color.disableBackground();
+        ANSI.reset();
+        System.out.println("Hello World!");
+        System.out.println("Another line");
+        System.out.println("Another one");
+        System.out.println(ANSI.Color.colorBackground("Orange", 245,152,12));
+        //ANSI.saveScreen();
+
 
     }
 }
